@@ -1,0 +1,61 @@
+<!-- <% layout('/layouts/boilerplate') -%> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Therapy Chatbot</title>
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Therapy Chatbot</h1>
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Type your message here..." />
+        <button id="send-button">Send</button>
+        <form method="post" action="/end">
+            <button>End Conversation</button>
+        </form>
+
+    </div>
+    <script src="../JS/script.js"></script>
+</body>
+</html>
+
+
+<script>
+    async function fetchTherapistResponse(userInput) {
+        const response = await fetch('/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: userInput }), 
+        });
+
+        if (!response.ok) {
+           
+            console.error('Error:', response.statusText);
+            return '<p>Sorry, there was an error getting a response.</p>';
+        }
+
+        const data = await response.json();
+        return data.response; 
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+        const greeting = await fetchGreeting();
+        const greetingMessage = document.createElement("div");
+        greetingMessage.className = "message therapist";
+        greetingMessage.innerHTML = `<strong>Therapist:</strong> ${greeting}`;
+        document.getElementById("chat-box").appendChild(greetingMessage);
+        const chatBox = document.getElementById("chat-box");
+        chatBox.scrollTop = chatBox.scrollHeight;
+    });
+
+    async function fetchGreeting() {
+        const response = await fetch('/chat/greet'); 
+        const data = await response.json();
+        return data.greeting;
+    }
+</script>

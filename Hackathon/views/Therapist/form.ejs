@@ -1,0 +1,73 @@
+ <% layout('/layouts/boilerplate') -%> 
+   
+
+    <div class="container">
+        <h2>Patient Profile Form</h2>
+        <form method="post" action="/form" >
+            <!-- Personal Information Section -->
+            <div class="section-header">Personal Information</div>
+
+            <!-- Diagnosis -->
+            <label for="diagnosis">Diagnosis</label>
+            <select id="diagnosis" name="Patient[diagnosis]" required title="Select a diagnosis">
+                <option value="">Select Diagnosis</option>
+                <option value="Anxiety">Anxiety</option>
+                <option value="Depression">Depression</option>
+                <option value="ADHD">ADHD</option>
+                <option value="Bipolar Disorder">Bipolar Disorder</option>
+                <option value="PTSD">PTSD</option>
+                <option value="PTSD">Not diagonosed</option>
+            </select>
+
+           
+            <!-- Age -->
+            <label for="age">Age</label>
+            <input type="number" id="age" name="Patient[age]" min="18" max="65" placeholder="Enter age (18-65)" required>
+
+            <!-- Gender -->
+            <label for="gender">Gender</label>
+            <select id="gender" name="Patient[gender]" required title="Select gender">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <!-- Professional Information Section -->
+            <div class="section-header">Professional Information</div>
+
+            <!-- Occupation -->
+            <label for="occupation">Occupation</label>
+            <select id="occupation" name="[occupation]" required title="Select occupation">
+                <option value="">Select Occupation</option>
+                <option value="Student">Student</option>
+                <option value="Healthcare Professional">Healthcare Professional</option>
+                <option value="Engineer">Engineer</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Unemployed">Unemployed</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <!-- Education Level -->
+            <label for="education_level">Education Level</label>
+            <select id="education_level" name="Patient[education]" required title="Select education level">
+                <option value="">Select Education Level</option>
+                <option value="High School">High School</option>
+                <option value="Bachelor">Bachelor</option>
+                <option value="Master">Master</option>
+                <option value="PhD">PhD</option>
+            </select>
+
+            <!-- Marital Status -->
+            <label for="marital_status">Marital Status</label>
+            <select id="marital_status" name="Patient[marital]" required title="Select marital status">
+                <option value="">Select Marital Status</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+            </select>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit Profile</button>
+        </form>
+    </div>

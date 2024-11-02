@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-md sticky-top custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <h3>MINDBOT</h3>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" aria-current="page" href="/therapist"><h5>Home</h5></a>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" aria-current="page" href="/review"><h5>Reviews</h5></a>
+        <a class="nav-link" href="/therapist/chatboat"><h5>AI Companion</h5></a>
+
+        <% if (!currUser) { %>
+          <a class="nav-link" href="/login"><h5>Log in</h5></a>
+          <a class="nav-link" href="/signup"><h5>Sign Up</h5></a>
+        <% } %>
+
+        <% if (currUser) { %>
+          <a class="nav-link" href="/logout"><h5>Log Out</h5></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
+
