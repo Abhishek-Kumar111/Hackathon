@@ -16,7 +16,7 @@ router.post('/chat', async (req, res) => {
 
     
     if (!prompt) {
-        prompt = `you have to act like a therapist and conduct a therapy session. Your patient name is Ayush. Greet him and begin the conversation. Make him feel good. Keep each reply under 200 words.`;
+        prompt = `you have to act like a therapist and conduct a therapy session. Greet him and begin the conversation. Make him feel good. Keep each reply under 200 words.`;
     }
 
     
